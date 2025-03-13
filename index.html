@@ -1,22 +1,21 @@
-<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Калькулятор палива</title>
+    <title>Калькулятор викидів</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h2>Веб-калькулятор розрахунку складу палива</h2>
-        <label>HP (%): <input type="number" id="hp" value="3.4"></label>
-        <label>CP (%): <input type="number" id="cp" value="70.6"></label>
-        <label>SP (%): <input type="number" id="sp" value="2.7"></label>
-        <label>NP (%): <input type="number" id="np" value="1.2"></label>
-        <label>OP (%): <input type="number" id="op" value="1.9"></label>
-        <label>WP (%): <input type="number" id="wp" value="5.0"></label>
-        <label>AP (%): <input type="number" id="ap" value="15.2"></label>
-        <br>
+        <h2>Калькулятор валових викидів твердих частинок</h2>
+        <label>Виберіть паливо:
+            <select id="fuelType">
+                <option value="coal">Вугілля</option>
+                <option value="mazut">Мазут</option>
+                <option value="gas">Природний газ</option>
+            </select>
+        </label>
+        <label>Кількість палива (т або м³): <input type="number" id="fuelAmount" value="672419.96"></label>
         <button onclick="calculate()">Розрахувати</button>
         <div class="result" id="result"></div>
     </div>
