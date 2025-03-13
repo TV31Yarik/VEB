@@ -1,0 +1,24 @@
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор викидів</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Калькулятор валових викидів твердих частинок</h2>
+        <label>Виберіть паливо:
+            <select id="fuelType">
+                <option value="coal">Вугілля</option>
+                <option value="mazut">Мазут</option>
+                <option value="gas">Природний газ</option>
+            </select>
+        </label>
+        <label>Кількість палива (т або м³): <input type="number" id="fuelAmount" value="672419.96"></label>
+        <button onclick="calculate()">Розрахувати</button>
+        <div class="result" id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
