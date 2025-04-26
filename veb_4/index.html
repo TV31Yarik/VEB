@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор вибору кабелю</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Калькулятор вибору кабелю</h2>
+        <div id="task-selection">
+            <button type="button" onclick="showTask('7.1')">Завдання 7.1</button>
+            <button type="button" onclick="showTask('7.2')">Завдання 7.2</button>
+            <button type="button" onclick="showTask('7.4')">Завдання 7.4</button>
+        </div>
+
+        <!-- Завдання 7.1 -->
+        <div id="task-7.1" class="form-section hidden">
+            <h3>Приклад 7.1 – Розрахунок вибору кабелю</h3>
+            <form>
+                <label>Розрахункове навантаження Sм (кВ·А): <input type="number" id="sm" value="1300"></label>
+                <label>Напруга U (кВ): <input type="number" id="voltage" value="10"></label>
+                <label>Струм КЗ Ik (кА): <input type="number" id="ik" value="2.5"></label>
+                <label>Час вимкнення tφ (с): <input type="number" id="tphi" value="2.5"></label>
+                <label>Час використання Tм (год): <input type="number" id="tm" value="4000"></label>
+                <button type="button" onclick="calculate71()">Розрахувати</button>
+            </form>
+            <div id="result-7.1" class="result"></div>
+        </div>
+
+        <!-- Завдання 7.2 -->
+        <div id="task-7.2" class="form-section hidden">
+            <h3>Приклад 7.2 – Розрахунок струмів короткого замикання</h3>
+            <form>
+                <label>Номінальна напруга U<sub>c.н</sub> (кВ): <input type="number" id="voltage-7.2" value="10.5" step="0.1"></label>
+                <label>Потужність короткого замикання S<sub>k</sub> (МВ·А): <input type="number" id="sk" value="200" step="1"></label>
+                <label>Напруга короткого замикання трансформатора U<sub>k</sub>%: <input type="number" id="uk" value="10.5" step="0.1"></label>
+                <label>Номінальна потужність трансформатора S<sub>ном.т</sub> (МВ·А): <input type="number" id="snom" value="6.3" step="0.1"></label>
+                <label>Метод розрахунку:
+                    <select id="method">
+                        <option value="named">В іменованих одиницях</option>
+                    </select>
+                </label>
+                <button type="button" onclick="calculate72()">Розрахувати</button>
+            </form>
+            <div id="result-7.2" class="result"></div>
+        </div>
+
+        <!-- Завдання 7.4 -->
+        <div id="task-7.4" class="form-section hidden">
+            <h3>Приклад 7.4 – Розрахунок струмів КЗ для підстанції з трьома режимами</h3>
+            <form>
+                <label>Напруга короткого замикання трансформатора U<sub>k.max</sub> (%): 
+                    <input type="number" id="uk-7.4" value="11.1" step="0.1"></label>
+                <label>Висока напруга трансформатора U<sub>В.н</sub> (кВ): 
+                    <input type="number" id="uhv-7.4" value="115" step="1"></label>
+                <label>Низька напруга трансформатора U<sub>Н.н</sub> (кВ): 
+                    <input type="number" id="ulv-7.4" value="11" step="1"></label>
+                <label>Номінальна потужність трансформатора S<sub>ном.т</sub> (МВ·А): 
+                    <input type="number" id="snom-7.4" value="6.3" step="0.1"></label>
+                
+                <div class="mode-tabs">
+                    <label><input type="radio" name="mode-7.4" value="normal" checked> Нормальний режим</label>
+                    <label><input type="radio" name="mode-7.4" value="minimal"> Мінімальний режим</label>
+                    <label><input type="radio" name="mode-7.4" value="emergency"> Аварійний режим</label>
+                </div>
+                
+                <!-- Додаткові параметри для аварійного режиму -->
+                <div id="emergency-params" style="display: none;">
+                    <label>Опір системи в аварійному режимі R<sub>c.emerg</sub> (Ом): 
+                        <input type="number" id="rcemerg" value="50.0" step="0.1"></label>
+                    <label>Реактивний опір системи в аварійному режимі X<sub>c.emerg</sub> (Ом): 
+                        <input type="number" id="xcemerg" value="80.0" step="0.1"></label>
+                </div>
+                
+                <button type="button" onclick="calculate74()">Розрахувати</button>
+            </form>
+            <div id="result-7.4" class="result"></div>
+        </div>
+    </div>
+    <script src="script.js"></script> 
+</body>
+</html>
