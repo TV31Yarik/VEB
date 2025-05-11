@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор надійності енергосистем</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Калькулятор надійності енергосистем</h2>
+        
+        <h3>Параметри елементів системи</h3>
+        <div id="failureParams">
+            <div class="param-row">
+                <label>Назва елемента:
+                    <select class="element-type">
+                        <option value="breaker">Елегазовий вимикач 110 кВ</option>
+                        <option value="line">Лінія електропередачі 110 кВ</option>
+                        <option value="transformer">Трансформатор 110/10 кВ</option>
+                        <option value="breaker10">Ввідний вимикач 10 кВ</option>
+                        <option value="connection">Приєднання 10 кВ</option>
+                        <option value="section">Секційний вимикач 10 кВ</option>
+                    </select>
+                </label>
+                <label>Кількість:
+                    <input type="number" class="element-count" value="1" min="1">
+                </label>
+                <label>Частота відмов (ω), рік⁻¹:
+                    <input type="number" step="0.0001" class="omega" value="0.01">
+                </label>
+                <label>Час відновлення (t), год:
+                    <input type="number" step="0.1" class="tvi" value="30">
+                </label>
+                <button class="remove-btn">Видалити</button>
+            </div>
+        </div>
+        <button id="addRowBtn">Додати елемент</button>
+        
+        <h3>Додаткові параметри</h3>
+        <label>Максимальне навантаження (P<sub>M</sub>), кВт:
+            <input type="number" step="0.01" id="P_M" value="5120">
+        </label>
+        <label>Час використання максимального навантаження (T<sub>M</sub>), год:
+            <input type="number" step="1" id="T_M" value="6451">
+        </label>
+        <label>Питомі збитки від аварійних вимкнень (Z<sub>пер.а</sub>), грн/кВт·год:
+            <input type="number" step="0.01" id="Z_per_a" value="23.6">
+        </label>
+        <label>Питомі збитки від планових вимкнень (Z<sub>пер.п</sub>), грн/кВт·год:
+            <input type="number" step="0.01" id="Z_per_p" value="17.6">
+        </label>
+        
+        <button id="calculateBtn">Розрахувати</button>
+        
+        <div class="result" id="result">
+            <h3>Результати розрахунків</h3>
+            <div id="resultsList"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
